@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 
 export async function generateToken(payload) {
     const token = await jwt.sign(payload, "SECRET_KEY", {
-        expiresIn: '10s'
+        expiresIn: '30s'
     })
     return token
 }
