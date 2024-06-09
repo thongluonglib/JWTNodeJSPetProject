@@ -1,4 +1,4 @@
-<img width="536" alt="Screenshot 2024-06-09 at 09 09 32" src="https://github.com/thongluonglib/JWTNodeJSPetProject/assets/172105923/70674e25-ffbf-4599-99d0-06c168959a81"><h1>React Native</h1>
+<h1>Client</h1>
 1. cd Client/PetProject
 2. npm install
 3. cd ios && pod install
@@ -6,6 +6,7 @@
 3. npx react-native start
 
 https://github.com/thongluonglib/JWTNodeJSPetProject/assets/172105923/f381c3da-3db9-4824-b719-034f0538e939
+
 <img width="539" alt="Screenshot 2024-06-09 at 09 10 10" src="https://github.com/thongluonglib/JWTNodeJSPetProject/assets/172105923/3f6c4bd7-e548-4d34-82ea-1d095f478fc2">
 
 <h1>Server:</h1>
