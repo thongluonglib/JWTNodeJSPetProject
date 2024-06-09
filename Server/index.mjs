@@ -10,11 +10,15 @@ app.get('/', function (req, res) {
 })
 
 app.post('/register', async (req, res) => {
-    const userId = randomUUID()
-    const token = await utils.generateToken({ userId, username: req.body.username })
+    if(!req.body.username) {
+        return res.send("UserName invalid")
+    }
+    const userid = randomUUID()
+    const token = await utils.generateToken({ userid, username: req.body.username })
     const password = await utils.hashPassword(req.body.password)
+   
     const userInfo = {
-        userId: randomUUID(),
+        userid: randomUUID(),
         username: req.body.username,
         password,
         token
@@ -30,8 +34,9 @@ app.post('/login', async (req, res) => {
     if (userInfo.username == req.body.username) {
         const isPassword = await utils.comparePassword(req.body.password, userInfo.password)
         if (isPassword) {
-            const token = await utils.generateToken({ userId: userInfo.userId, username: userInfo.username })
+            const token = await utils.generateToken({ userid: userInfo.userid, username: userInfo.username })
             return res.send({
+                userid: userInfo.userid,
                 username: userInfo.username,
                 token
             })

@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 
 export async function generateToken(payload) {
     const token = await jwt.sign(payload, "SECRET_KEY", {
-        expiresIn: '1h'
+        expiresIn: '10s'
     })
     return token
 }
@@ -29,7 +29,10 @@ export async function verifyToken(req, res, next) {
     }
     catch (err) {
         console.log('error', err)
-        return res.status(403).json('Token not valid')
+        return res.send({
+            statusCode: 403,
+            message: 'Token not valid'
+        })
 
     }
 }
